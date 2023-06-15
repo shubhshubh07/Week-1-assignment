@@ -9,7 +9,22 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  let categoryWiseObject = {};
+  let categoryWiseObjectArray = [];
+  for (let transaction of transactions){
+    const { category, price } = transaction;
+    //categoryWiseList[transaction.category] = (categoryWiseList[transaction.category] || 0) + transaction.price;
+    if (categoryWiseObject.hasOwnProperty(category)) {
+      categoryWiseObject[category] += price;
+    } else {
+      categoryWiseObject[category] = price;
+    }
+  }
+  
+  for (let category in categoryWiseObject) {
+    categoryWiseObjectArray.push({ category: category, totalSpent: categoryWiseObject[category] });
+  }
+  return categoryWiseObjectArray;
 }
 
 module.exports = calculateTotalSpentByCategory;

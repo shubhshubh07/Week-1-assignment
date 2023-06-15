@@ -53,7 +53,7 @@ describe('Calculator', () => {
 	});
 
 	test('calculate addition and multiplication', () => {
-		calc.calculate('2 + 3 * 4');
+		calc.calculate('"2 + 3 * 4"');
 		expect(calc.getResult()).toBe(14);
 	});
 
